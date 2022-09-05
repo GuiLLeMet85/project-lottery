@@ -1,55 +1,26 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const BetUser = require ('../models/BetUser')
+const User = require ('../models/User')
 // Import the model
 
-const betsuser = [
+const betsUser = [
     {
     userId: "01",
-    dateLottery: 16-04-2022,
-    numbers: [
-        num0: 09,
-      },
-      {
-        num1: 10,
-      },
-      {
-        num2: 19,
-      },
-      {
-        num3: 27,
-      },
-      {
-        num4: 45,
-      },
-      {
-        num5: 46,
-      },
-    ]   
-    },
-    {
-    numComplem: 28  
-    },
-    {
-    numReint: 1
-    },
-    {
-    euroBet: 1
-    },
-    {
-
+    dateLottery: (2022-16-04),
+    numbers: [{num0: 09, num1: 10, num2: 19, num3: 27, num4: 45, num5: 46}],    
+    numComplem: 28,  
+    numReint: 1,
+    euroBet: 1,
+    isPrized: false
     }
-
-
 ]
 
-
-// Place the array you want to seed
 
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
   .then(() => {
-    return // Model.create(array)
+    return BetUser.create(betsUser)
   })
   .then(() => {
     console.log('Seed done 🌱');
@@ -60,4 +31,3 @@ mongoose.connect(process.env.MONGO_URL)
     mongoose.connection.close();
   })
 
-// Run npm run seed 

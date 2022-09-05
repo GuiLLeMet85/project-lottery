@@ -2,56 +2,37 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const betUserSchema = new Schema ({
-    userId: {
-        type: [String]
-    },
-    dateLottery: {
-        type: Date,
-         required: true,
-    },
-    numbers: [{
+    userId: { type: String, required: true },
+    dateLottery: { type: Date, required: true },
+    numbers: {
+        type: [
+        {
         num0: {
-         type: Number,
-         required: true
+         type: Number
         },
         num1: {
-         type: Number,
-         required: true
+         type: Number
         },
         num2: {
-         type: Number,
-         required: true
+         type: Number
         },
         num3: {
-         type: Number,
-         required: true
+         type: Number
         },
         num4: {
-         type: Number,
-         required: true
+         type: Number
         },
         num5: {
-         type: Number,
-         required: true
-        }
-    }],
-    numComplem: {
-         type: Number,
-         required: true
-     },
-    numReint: {
-         type: Number,
-         required: true
-     },
-    euroBet: {
-        type: Number,
-         default: 1,
-        required: true
-    },
-    isPrized: {
-        type: Bolean,
-        required: true
+         type: Number
+        }  
     }
+    ],
+    required: true
+    },
+    numComplem: { type: Number,required: true },
+    numReint: { type: Number, required: true },
+    euroBet: { type: Number, default: 1, required: true },
+    isPrized: { type: Boolean, required: true }
 },
 {
   timestamps: true
