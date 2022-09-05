@@ -6,47 +6,39 @@ const resultsPrimitivaSchema = new Schema ({
         type: Number,
          required: true,
     },
-    yearLottery: {
+    numbers: {
+       num0: {
         type: Number,
-         required: true,
+        required: true
+       },
+       num1: {
+        type: Number,
+        required: true
+       },
+       num2: {
+        type: Number,
+        required: true
+       },
+       num3: {
+        type: Number,
+        required: true
+       },
+       num4: {
+        type: Number,
+        required: true
+       },
+       num5: {
+        type: Number,
+        required: true
+       }
     },
-    num1: {
+    numComplem: {
         type: Number,
-         required: true,
-                unique: true,
-    },
-    num2: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    num3: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    num4: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    num5: {
-        type: Number,
-         required: true,
-        unique: true,
-    },	
-    num6: {
-        type: Number,
-         required: true,
-        unique: true,
+        required: true
     },
     numReint: {
         type: Number,
-         required: true
-    },
-    numCompl: {
-        type: Number,
-         required: true
+        required: true
     }
 },
 {

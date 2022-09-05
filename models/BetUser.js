@@ -6,51 +6,43 @@ const betUserSchema = new Schema ({
         type: [String]
     },
     dateLottery: {
-        type: Number,
+        type: Date,
          required: true,
     },
-    yearLottery: {
-        type: Number,
-         required: true,
-    },
-    num1: {
-        type: Number,
-         required: true,
-                unique: true,
-    },
-    num2: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    num3: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    num4: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    num5: {
-        type: Number,
-         required: true,
-        unique: true,
-    },	
-    num6: {
-        type: Number,
-         required: true,
-        unique: true,
-    },
-    numCompl: {
-        type: Number,
+    numbers: [{
+        num0: {
+         type: Number,
          required: true
-    },
+        },
+        num1: {
+         type: Number,
+         required: true
+        },
+        num2: {
+         type: Number,
+         required: true
+        },
+        num3: {
+         type: Number,
+         required: true
+        },
+        num4: {
+         type: Number,
+         required: true
+        },
+        num5: {
+         type: Number,
+         required: true
+        }
+    }],
+    numComplem: {
+         type: Number,
+         required: true
+     },
     numReint: {
-        type: Number,
+         type: Number,
          required: true
-    },
+     },
     euroBet: {
         type: Number,
          default: 1,
