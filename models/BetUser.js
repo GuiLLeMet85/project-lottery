@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const betUserSchema = new Schema ({
-    userId: { type: String, required: true },
-    dateLottery: { type: Date, required: true },
+    userId: { type: Schema.Types.ObjectId, ref: "User" },
+    dateLottery: { type: String, required: true },
     numbers: {
         type: [
         {

@@ -6,8 +6,8 @@ const User = require ('../models/User')
 
 const betsUser = [
     {
-    userId: "01",
-    dateLottery: (2022-16-04),
+    userId: "63162eb0452342b18a5b4b6f?",
+    dateLottery: '2022-16-04',
     numbers: [{num0: 09, num1: 10, num2: 19, num3: 27, num4: 45, num5: 46}],    
     numComplem: 28,  
     numReint: 1,
@@ -15,7 +15,6 @@ const betsUser = [
     isPrized: false
     }
 ]
-
 
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
