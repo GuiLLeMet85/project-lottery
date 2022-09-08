@@ -71,7 +71,7 @@ router.get('/userId/:id', isAuthenticated, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+})});
 
 // @desc    Delete a user bet
 // @route   DELETE /api/v1/userId/:id
@@ -90,7 +90,5 @@ router.delete('/userId/:id', isAuthenticated, async (req, res, next) => {
     next(error);
   }
 });
-
-
 
 module.exports = router;
