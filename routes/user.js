@@ -3,11 +3,13 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const {isAuthenticated} = require('../middlewares/jwt')
 const User = require("../models/User");
-const fileUpload = require('express-fileupload');
+const fileUploader = require('../config/cloudinary.config');
+
+
 // @desc    List all users
 // @route   Get /user/usersList
 // @access  Admin
-router.get('/usersList', async (req,res,next)=>{
+router.get('/usersList', isAuthenticated, async (req,res,next)=>{
   try {
       const usersList = await User.find({});
       res.status(200).json({ data: usersList })

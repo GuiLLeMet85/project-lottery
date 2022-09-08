@@ -5,11 +5,12 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const errorHandler = require('./middlewares/errorHandler');
-
+  
 // Routers require
 const indexRouter = require('./routes/index');
 const betRouter = require('./routes/betUser');
 const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 // routes intro
 app.use('/', indexRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/user', userRouter);
 app.use('/api/v1/bets', betRouter);
 app.use(errorHandler);
 
