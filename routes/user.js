@@ -34,7 +34,6 @@ router.put('/edit', isAuthenticated, fileUploader.single('userPicture'), async (
     }
     try {
       const userDataBase = await User.findByIdAndUpdate(userId, {email, password, username, userPicture}, {new: true});
-      req.payload = userDataBase
       res.status(200).json({ data: userDataBase })
     } catch (error) {
       next(error);
@@ -46,7 +45,7 @@ router.put('/edit', isAuthenticated, fileUploader.single('userPicture'), async (
 // @access  Private
 
 router.delete('/delete', isAuthenticated, async (req, res, next) => {
-    const userId = req.payload;
+    const userId = req.payload._id;
     try {
       const deleteUser = await User.findByIdAndUpdate(userId);
         res.status(202).json({ data: deleteUser })
