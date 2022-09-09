@@ -46,7 +46,7 @@ router.post('/', isAuthenticated, async (req, res, next) => {
   try {
     const betUser = await BetUser.create({ dateLottery, numbers, numComplem, numReint, euroBet, isPrized, userId: _id });
     if (!betUser) {
-      next(new ErrorResponse('An error ocurred while creating the bet user', 500));
+      next(new ErrorResponse('An error ocurred while creating the a bet', 500));
     }
     res.status(200).json({ data: betUser })
   } catch (error) {
@@ -64,7 +64,7 @@ router.put('/:id', isAuthenticated, async (req, res, next) => {
   try {
     const betUser = await BetUser.findById(id);
     if (!betUser) {
-      next(new ErrorResponse(`Project not found by id: ${id}`, 404));
+      next(new ErrorResponse(`Bet not found by id: ${id}`, 404));
     } else {
       const updatedUserBet = await BetUser.findByIdAndUpdate(id, { dateLottery, numbers, numComplem, numReint, euroBet, isPrized }, { new: true });
       res.status(202).json({ data: updatedUserBet })
@@ -82,7 +82,7 @@ router.delete('/:id', isAuthenticated, async (req, res, next) => {
   try {
     const betUser = await BetUser.findById(id);
     if (!betUser) {
-      next(new ErrorResponse(`Project not found by id: ${id}`, 404));
+      next(new ErrorResponse(`Bet not found by id: ${id}`, 404));
     } else {
       const deleted = await BetUser.findByIdAndDelete(id);
       res.status(202).json({ data: deleted });

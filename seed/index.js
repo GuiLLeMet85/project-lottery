@@ -6,7 +6,6 @@ const User = require ('../models/User')
 
 const betsUser = [
     {
-    userId: "63162eb0452342b18a5b4b6f?",
     dateLottery: '2022-16-04',
     numbers: [{num0: 09, num1: 10, num2: 19, num3: 27, num4: 45, num5: 46}],    
     numComplem: 28,  
