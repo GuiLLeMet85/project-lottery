@@ -68,4 +68,15 @@ router.delete('/delete', isAuthenticated, async (req, res, next) => {
     }
   });
 
+// @desc    Upload a picture to Cloudinary
+// @route   POST /api/v1/user/upload
+// @access  Private
+router.post("/upload", fileUploader.single("userPicture"), (req, res, next) => {
+  if (!req.file) {
+    next(new ErrorResponse('Error uploading the image', 500));
+    return;
+  }
+  res.json({ fileUrl: req.file.path });
+});
+
 module.exports = router;
