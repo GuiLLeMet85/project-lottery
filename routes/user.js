@@ -18,6 +18,19 @@ router.get('/usersList', isAuthenticated, async (req,res,next)=>{
   }
 })
 
+// @desc    List all users
+// @route   Get /user/me
+// @access  Private
+router.get('/me', isAuthenticated, async (req,res,next)=>{
+  const { _id } = req.payload;
+  try {
+      const user = await User.findById(_id);
+      res.status(200).json({ data: user })
+  } catch (error) {
+      next(error)
+  }
+})
+
 // @desc    Edit user from the Database
 // @route   PUT /user/edit
 // @access  Private

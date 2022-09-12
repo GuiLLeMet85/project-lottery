@@ -5,18 +5,25 @@ const userSchema = new Schema({
   email: {
     type: String,
     unique: true,
-    required: true
+    required: [true, 'Email is required.'],
   },
   hashedPassword: {
     type: String,
-    required: true
+    required: [true, 'Password is required.']
   },
   username: {
     type: String,
-    required: true
+    unique: true,
+    required: [true, 'Username is required.'],
   },
   userPicture: {
-    type: String
+    type: String,
+    default: '/files-upload/user-profile.png'
+  },
+  phoneNum: {
+    type: Number,
+    unique: true,
+    required: [true, 'Phone is required.']
   },
   role: {
     type: String,
