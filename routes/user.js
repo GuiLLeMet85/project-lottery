@@ -5,7 +5,6 @@ const {isAuthenticated} = require('../middlewares/jwt')
 const User = require("../models/User");
 const fileUploader = require('../config/cloudinary.config');
 
-
 // @desc    List all users
 // @route   Get /user/usersList
 // @access  Admin

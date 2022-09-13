@@ -10,9 +10,10 @@ const saltRounds = 10;
 // @route   POST /api/v1/auth/signup
 // @access  Public
 router.post('/signup', async (req, res, next) => {
-  const { email, password, username, userPicture } = req.body;
+  console.log('Creating', req.body);
+  const { email, password, username} = req.body;
   // Check if email or password or name are provided as empty string 
-  if (email === "" || password === "" || username === "" || userPicture === "") {
+  if (email === "" || password === "" || username === "") {
     return next(new ErrorResponse('Please fill all the fields to register', 400))
   }
   // Use regex to validate the email format
@@ -36,7 +37,6 @@ router.post('/signup', async (req, res, next) => {
       const publicUser = { 
         username: user.username,
         email: user.email,
-        userPicture: user.userPicture
       }
       res.status(201).json({ data: publicUser });
     }
@@ -98,7 +98,6 @@ router.get('/me', isAuthenticated, (req, res, next) => {
   // previously set as the token payload
   res.status(200).json(req.payload);
 })
-
 
 
 module.exports = router;

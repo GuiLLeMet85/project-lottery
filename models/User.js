@@ -18,12 +18,7 @@ const userSchema = new Schema({
   },
   userPicture: {
     type: String,
-    default: '/files-upload/user-profile.png'
-  },
-  phoneNum: {
-    type: Number,
-    unique: true,
-    required: [true, 'Phone is required.']
+    default: 'https://res.cloudinary.com/dnxl4zry6/image/upload/v1663025902/userProfile/es9pkrvyvdv2dtzotvjk.png'
   },
   role: {
     type: String,
