@@ -10,10 +10,9 @@ const betUserSchema = new Schema ({
     num3: { type: Number, required: true, unique: true},
     num4: { type: Number, required: true, unique: true},
     num5: { type: Number, required: true, unique: true},
-    numComplem: { type: Number, required: true },
     numReint: { type: Number, required: true },
-    euroBet: { type: Number, default: 1, required: true },
-    isPrized: { type: Boolean, required: true }
+    euroBet: { type: Number, default: 1},
+    isPrized: { type: Boolean, default: false }
 },
 {
   timestamps: true

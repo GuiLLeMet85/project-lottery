@@ -41,10 +41,10 @@ router.get('/:id', isAuthenticated, async (req, res, next) => {
 // @route   POST /api/v1/bets/
 // @access  Private
 router.post('/', isAuthenticated, async (req, res, next) => {
-  const { dateLottery, numbers, numComplem, numReint, euroBet, isPrized } = req.body;
+  const { dateLottery, num0, num1, num2, num3, num4, num5, numReint, euroBet, isPrized } = req.body;
   const { _id } = req.payload;
   try {
-    const betUser = await BetUser.create({ dateLottery, numbers, numComplem, numReint, euroBet, isPrized, userId: _id });
+    const betUser = await BetUser.create({ dateLottery, num0, num1, num2, num3, num4, num5, numReint,euroBet, isPrized, userId: _id });
     if (!betUser) {
       next(new ErrorResponse('An error ocurred while creating the a bet', 500));
     }
@@ -60,13 +60,13 @@ router.post('/', isAuthenticated, async (req, res, next) => {
 // @access  Private
 router.put('/:id', isAuthenticated, async (req, res, next) => {
   const { id } = req.params;
-  const { dateLottery, numbers, numComplem, numReint, euroBet, isPrized } = req.body;
+  const { dateLottery, num0, num1, num2, num3, num4, num5, numReint, euroBet, isPrized } = req.body;
   try {
     const betUser = await BetUser.findById(id);
     if (!betUser) {
       next(new ErrorResponse(`Bet not found by id: ${id}`, 404));
     } else {
-      const updatedUserBet = await BetUser.findByIdAndUpdate(id, { dateLottery, numbers, numComplem, numReint, euroBet, isPrized }, { new: true });
+      const updatedUserBet = await BetUser.findByIdAndUpdate(id, { dateLottery, num0, num1, num2, num3, num4, num5, numReint, euroBet, isPrized }, { new: true });
       res.status(202).json({ data: updatedUserBet })
     }
   } catch (error) {
