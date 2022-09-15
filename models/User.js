@@ -21,7 +21,8 @@ const userSchema = new Schema({
     default: 'https://res.cloudinary.com/dnxl4zry6/image/upload/v1663025902/userProfile/es9pkrvyvdv2dtzotvjk.png'
   },
   phoneNum: {
-    type: String
+    type: Number,
+    unique: true,
   },
   role: {
     type: String,
