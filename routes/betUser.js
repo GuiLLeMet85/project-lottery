@@ -11,7 +11,7 @@ const { isAuthenticated } = require('../middlewares/jwt');
 router.get('/', isAuthenticated, async (req, res, next) => {
   // req.payload = user
   try {
-    const betUser = await BetUser.find({ userId: req.payload._id });
+    const betUser = await BetUser.find({ userId: req.payload._id }).sort({ _id: -1 });
     if (!betUser) {
       next(new ErrorResponse('No bets for user found', 404));
     }

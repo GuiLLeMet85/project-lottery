@@ -1,31 +1,42 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const BetUser = require ('../models/BetUser')
-const User = require ('../models/User')
+const ResultsPrimitiva = require ('../models/ResultsPrimitiva.js');
+const axios = require("axios");
 // Import the model
 
-const betsUser = [
-    {
-    dateLottery: '2022-16-04',
-    numbers: [{num0: 09, num1: 10, num2: 19, num3: 27, num4: 45, num5: 46}],    
-    numComplem: 28,  
-    numReint: 1,
-    euroBet: 1,
-    isPrized: false
-    }
-]
+
+// Import the model
+
+
+
+
+const options = {
+  method: 'GET',
+  url: 'https://loterias-y-apuestas-del-estado.p.rapidapi.com/v1/loteria/resultados/primitiva',
+  params: {date: '16-04-2022'},
+  headers: {
+    'X-RapidAPI-Key': 'a6804aafbfmsh8b92ba32ec000dfp10575ejsn7cf53d8bcce1',
+    'X-RapidAPI-Host': 'loterias-y-apuestas-del-estado.p.rapidapi.com'
+  }
+};
+
+// Place the array you want to seed
 
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
-  .then(() => {
-    return BetUser.create(betsUser)
-  })
-  .then(() => {
-    console.log('Seed done 🌱');
-  })
-  .catch(e => console.log(e))
-  .finally(() => {
-    console.log('Closing connection');
-    mongoose.connection.close();
-  })
+  .then(axios.request(options).then(function(response){
+    const betsData=response.data.results
+    console.log(betsData)}))
+    // const filteredBets=betsData.map(ele=>{return ele})
+    // return betResults.create(betsData)
+  // })
+  // .then(() => {
+  //   console.log('Seed done 🌱');
+  // })
+  // .catch(e => console.log(e))
+  // .finally(() => {
+  //   console.log('Closing connection');
+  //   mongoose.connection.close();
+  // }))
 
+// Run npm run seed 

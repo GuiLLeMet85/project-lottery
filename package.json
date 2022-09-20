@@ -5,9 +5,11 @@
   "scripts": {
     "seed": "node ./seed",
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "api": "node ./utils/seeApi.js"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.31.0",
     "cors": "^2.8.5",
