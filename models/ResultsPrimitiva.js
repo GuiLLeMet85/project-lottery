@@ -1,35 +1,20 @@
-// const mongoose = require('mongoose');
-// const { Schema, model } = mongoose;
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-// const resultsPrimitivaSchema = new Schema ({
-    
-//     numbers: {
-//         reintegro : {type: Number},
-//         numeros: [
-//         ]
+const resultsPrimitivaSchema = new Schema ({
+    date: { type: Date, required: true },
+    num0: { type: Number, required: true, unique: true},
+    num1: { type: Number, required: true, unique: true},
+    num2: { type: Number, required: true, unique: true},
+    num3: { type: Number, required: true, unique: true},
+    num4: { type: Number, required: true, unique: true},
+    num5: { type: Number, required: true, unique: true},
+    numCompl: { type: Number, required: true },
+    numReint: { type: Number, required: true },
+    Joker: { type: Number }
+},
+{
+  timestamps: true
+});
 
-//     //     0: {
-//     //      type: Number
-//     //     },
-//     //     1: {
-//     //      type: Number
-//     //     },
-//     //     2: {
-//     //      type: Number
-//     //     },
-//     //     3: {
-//     //      type: Number
-//     //     },
-//     //     num4: {
-//     //      type: Number
-//     //     },
-//     //     num5: {
-//     //      type: Number
-//     //     }  
-//     // }
-//     // ],
-// {
-//   timestamps: true
-// });
-
-// module.exports = model("ResultPrimitiva", resultsPrimitivaSchema);
+module.exports = model("ResultsPrimitiva", resultsPrimitivaSchema);
