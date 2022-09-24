@@ -2,12 +2,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const ResultsPrimitiva = require ('../models/ResultsPrimitiva.js');
 const axios = require("axios");
-// Import the model
-
-
-// Import the model
-
-
 
 
 const options = {
@@ -25,18 +19,17 @@ const options = {
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
   .then(axios.request(options).then(function(response){
-    const betsData=response.data.results
-    console.log(betsData)}))
-    // const filteredBets=betsData.map(ele=>{return ele})
-    // return betResults.create(betsData)
-  // })
-  // .then(() => {
-  //   console.log('Seed done 🌱');
-  // })
-  // .catch(e => console.log(e))
-  // .finally(() => {
-  //   console.log('Closing connection');
-  //   mongoose.connection.close();
-  // }))
+    const betsData=response.data.results 
+    const filteredBets = betsData.map(ele=>{return ele})
+    return ResultsPrimitiva.create(betsData)
+  })
+  .then(() => {
+    console.log('Seed done 🌱');
+  })
+  .catch(e => console.log(e))
+  .finally(() => {
+    console.log('Closing connection');
+    mongoose.connection.close();
+  }))
 
 // Run npm run seed 

@@ -1,35 +1,48 @@
-// const mongoose = require('mongoose');
-// const { Schema, model } = mongoose;
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-// const resultsPrimitivaSchema = new Schema ({
+const resultsPrimitivaSchema = new Schema ({
+
+// info: {
+//         prizes: [
+//             {
+//                values: [ 
+//                     {
+//                         0: [
+//                                 {
+//                                     name: String,
+//                                     value: Number
+//                                 }
+//                             ],
+//                         1: [
+//                                 {
+//                                     name: String,
+//                                     value: Number
+//                                 },
+//                         ]
+                
+//                     }
+//                ]
     
-//     numbers: {
-//         reintegro : {type: Number},
-//         numeros: [
+//             }
 //         ]
+//     }
 
-//     //     0: {
-//     //      type: Number
-//     //     },
-//     //     1: {
-//     //      type: Number
-//     //     },
-//     //     2: {
-//     //      type: Number
-//     //     },
-//     //     3: {
-//     //      type: Number
-//     //     },
-//     //     num4: {
-//     //      type: Number
-//     //     },
-//     //     num5: {
-//     //      type: Number
-//     //     }  
-//     // }
-//     // ],
-// {
-//   timestamps: true
-// });
 
-// module.exports = model("ResultPrimitiva", resultsPrimitivaSchema);
+
+
+
+// } 
+
+
+    numeros: {
+            type:[],
+            default: [1, 2, 3, 4, 5, 6]
+    },
+    
+    date: {type: Date},
+    reintegro: { type: Number },
+    complementario: { type: Number },
+});
+
+module.exports = model("ResultPrimitiva", resultsPrimitivaSchema);
