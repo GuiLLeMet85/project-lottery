@@ -110,5 +110,5 @@ npm run seed
 
 - [Presentation slides](https://slides.com/d/wXETgCg/live)
 - [Frontend repository](https://github.com/GuiLLeMet85/project-lottery-frontend)
-- [Frontend deploy]()
-- [Deployed REST API]()
+- [Frontend deploy](https://lottery-wallet.netlify.app/)
+- [Deployed REST API](https://lottery-wallet-back.herokuapp.com/)
