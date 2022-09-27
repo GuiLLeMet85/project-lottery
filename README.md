@@ -46,65 +46,69 @@ npm run seed
 {
 "userId": { type: String, required: true },
 "dateLottery": { type: Date, required: true },
-"numbers": {
-            type: [
-            {
-            "num0": {
-            type: Number
-            },
-            "num1": {
-            type: Number
-            },
-            "num2": {
-            type: Number
-            },
-            "num3": {
-            type: Number
-            },
-            "num4": {
-            type: Number
-            },
-            "num5": {
-            type: Number"
-            }
-            ],
-required: true
-},
-"numComplem": { type: Number,required: true },
+"num0": { type: Number, required: true },
+"num1": { type: Number, required: true },
+"num2": { type: Number, required: true },
+"num3": { type: Number, required: true },
+"num4": { type: Number, required: true },
+"num5": { type: Number, required: true },
 "numReint": { type: Number, required: true },
 "euroBet": { type: Number, default: 1, required: true },
 "isPrized": { type: Boolean, required: true }
 },
 
 
-
 ### User
-
-Users in the database have the following properties:
 
 ```js
 {
-  "username": String,
-  "email": String,
-  "hashedPassword": String
+  "email": { type: String, unique: true, required: true},
+  "username": { type: String, unique: true, required: true},
+  "userPicture": { type: String, default: 'https://res.cloudinary.com/dnxl4zry6/image/upload/v1663025902/userProfile/es9pkrvyvdv2dtzotvjk.png'},
+  "phoneNum": { type: Number},
+  "role": { type: String, default: 'user'}
+},
+
+### primitiva
+
 }
 ````
+
+{
+
+"date": { type: Date, required: true },
+"num0": { type: Number, required: true },
+"num1": { type: Number, required: true },
+"num2": { type: Number, required: true },
+"num3": { type: Number, required: true },
+"num4": { type: Number, required: true },
+"num5": { type: Number, required: true },
+"numCompl": { type: Number,required: true },
+"numReint": { type: Number, required: true },
+"Joker": { type: Number},
+},
 
 ---
 
 ## API endpoints and usage
 
-| Action             | Method | Endpoint            | Req.body                      | Private/Public |
-| ------------------ | ------ | ------------------- | ----------------------------- | -------------- |
-| SIGN UP user       | POST   | /api/v1/auth/signup | { username, email, password } | Public         |
-| LOG IN user        | POST   | /api/v1/auth/login  | { email, password }           | Public         |
-| GET logged in user | GET    | /api/v1/auth/me     |                               | Private        |
-
----
+| Action             | Method | Endpoint               | Req.body                      | Private/Public |
+| ------------------ | ------ | ---------------------- | ----------------------------- | -------------- |
+| SIGN UP user       | POST   | /api/v1/auth/signup    | { username, email, password } | Public         |
+| LOG IN user        | POST   | /api/v1/auth/login     | { email, password }           | Public         |
+| GET logged in user | GET    | /api/v1/auth/me        |                               | Private        |
+| UPLOAD to Cloudina | POST   | /api/v1/user/upload    | form-file:profileImage        | Private        |
+| Delete user        | DELETE | /api/v1/user/delete    |                               | Private        |
+| Edit user          | PUT    | /api/v1/user/edit      |                               | Private        |
+| Users Lis          | GET    | /api/v1/user/userslist |                               | Private        |
+| GET user bet       | GET    | /api/v1/bets/:id       |                               | Private        |
+| Create single bet  | POST   | /api/v1/bets           |                               | Private        |
+| Edit user bet      | PUT    | /api/v1/bets/:id       |                               | Private        |
+| Delete user bet    | DELETE | /api/v1/bets/:id       |                               | Private        |
 
 ## Useful links
 
-- [Presentation slides]()
-- [Frontend repository]()
+- [Presentation slides](https://slides.com/d/wXETgCg/live)
+- [Frontend repository](https://github.com/GuiLLeMet85/project-lottery-frontend)
 - [Frontend deploy]()
 - [Deployed REST API]()

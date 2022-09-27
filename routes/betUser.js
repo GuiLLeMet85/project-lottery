@@ -9,7 +9,6 @@ const { isAuthenticated } = require('../middlewares/jwt');
 // @access  Private
 
 router.get('/', isAuthenticated, async (req, res, next) => {
-  // req.payload = user
   try {
     const betUser = await BetUser.find({ userId: req.payload._id }).sort({ _id: -1 });
     if (!betUser) {
